@@ -33,6 +33,7 @@ function Sidebar() {
       <Link to={`/articles`}>Article Index</Link>
       <Link to={`/articles/zea mays`}>Featured Article</Link>
       <Link onClick={randomArticle}>Random Article</Link>
+      <Link to={`/articles/new`}>New Article</Link>
     </div>
   );
 }

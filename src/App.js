@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Components/Home";
 import Index from "./Components/Index";
 import Article from "./Components/Article";
+import NewArticleForm from "./Components/NewArticleForm";
 import Navbar from "./Components/Navbar";
 import Sidebar from "./Components/Sidebar";
 import NotFound from "./Components/NotFound";
@@ -21,6 +22,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/articles" element={<Index />} />
+            <Route path="/articles/new" element={<NewArticleForm />} />
             <Route path="/articles/:id" element={<Article />} />
             <Route path="not-found" element={<NotFound />} />
           </Routes>
