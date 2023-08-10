@@ -1,0 +1,11 @@
+.Sidebar {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.3em;
+    min-width: 250px;
+    padding: 22px 16px;
+}
+
+.Sidebar a {
+    margin: 2.5px 0 2.5px 0;
+}
