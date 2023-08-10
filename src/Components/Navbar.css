@@ -1,10 +1,11 @@
 .Navbar {
+    align-items: center;
     border-bottom: 12px solid #dc3;
     display: flex;
     flex-direction: row;
     font-size: 1.3em;
     max-width: 1080px;
-    padding-bottom: 6px;
+    padding-bottom: 12px;
 }
 
 .Navbar div {
@@ -13,4 +14,10 @@
 
 .nav-bar-title {
     color: #000;
+}
+
+input {
+    height: 26px;
+    margin: 0;
+    min-width: 200px;
 }
