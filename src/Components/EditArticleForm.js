@@ -1,12 +1,13 @@
 import axios from "axios";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
-import './NewArticleForm.css';
+import './EditArticleForm.css';
 
 const API = process.env.REACT_APP_API_URL;
 
-function NewArticleForm(props) {
+function EditArticleForm(props) {
+  let { id } = useParams();
   let navigate = useNavigate();
   const [submitError, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -16,19 +17,15 @@ function NewArticleForm(props) {
     body: "",
   });
 
-  const addArticle = (newArticle) => {
+  const updateArticle = (updatedArticle) => {
     axios
-      .post(`${API}/articles`, newArticle)
+      .put(`${API}/articles/${id}`, updatedArticle)
       .then(
-        (response) => {
-          navigate(`/articles`);
-          setError(false);
+        () => {
+          console.log("Navigating to:", `/articles/${updatedArticle.title}`)
+          navigate(`/articles/${updatedArticle.title}`);
         },
-        (error) => {
-          console.error(error);
-          setError(true);
-          setErrorMessage(error);
-        }
+        (error) => console.error(error)
       )
       .catch((c) => console.warn("catch", c));
   };
@@ -43,8 +40,24 @@ function NewArticleForm(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    addArticle(article);
+    updateArticle(article);
   };
+
+  useEffect(() => {
+    axios
+      .get(`${API}/articles/${id}`)
+      .then(
+        (response) => {
+          setArticle(response.data);
+        },
+        (err) => {
+          console.error(err);
+          navigate(`/not-found`);
+        }
+      )
+      .catch((c) => console.warn("catch", c));
+  }, [id, API]);
+
   return (
     <div className="New">
       <h2>New Article</h2>
@@ -75,4 +88,4 @@ function NewArticleForm(props) {
   );
 }
 
-export default NewArticleForm;
+export default EditArticleForm;

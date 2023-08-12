@@ -1,0 +1,10 @@
+.new-article-form {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 30px 0;
+}
+
+textarea {
+    min-width: 400px;
+    height: 100px;
+}
