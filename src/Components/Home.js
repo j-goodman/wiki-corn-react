@@ -11,11 +11,9 @@ function Home() {
     const featuredTitle = "Zea Mays"
 
     useEffect(() => {
-      console.log(`${API}/articles/${featuredTitle}`)
       axios
       .get(`${API}/articles/${featuredTitle}`)
       .then((response) => {
-          console.log(response.data)
           setArticle(response.data);
         })
         .catch((c) => {
