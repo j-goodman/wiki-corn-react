@@ -30,8 +30,8 @@ function Sidebar() {
   return (
     <div className="Sidebar">
       <Link to={`/`}>Homepage</Link>
-      <Link to={`/articles`}>Article Index</Link>
       <Link to={`/articles/zea mays`}>Featured Article</Link>
+      <Link to={`/articles`}>Article Index</Link>
       <Link onClick={randomArticle}>Random Article</Link>
       <Link to={`/articles/new`}>New Article</Link>
     </div>
