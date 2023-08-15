@@ -8,7 +8,7 @@ function Home() {
     const [article, setArticle] = useState({});
     let navigate = useNavigate();
     const API = process.env.REACT_APP_API_URL;
-    const featuredTitle = "Zea Mays"
+    const featuredTitle = "Dr Pepper"
 
     useEffect(() => {
       axios
@@ -23,7 +23,7 @@ function Home() {
   
     return (
       <div className="Article">
-        <h2>Welcome to Wiki Corn</h2>
+        <h2>Welcome to Wiki Corn!</h2>
         <h3><b className="greyout">Featured Article:</b>&nbsp;<Link to={`/articles/${article.title}`}>{article.title}</Link></h3>
         <div dangerouslySetInnerHTML={{ __html: article.body }} />
       </div>
