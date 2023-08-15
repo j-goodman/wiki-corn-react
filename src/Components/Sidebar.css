@@ -9,3 +9,15 @@
 .Sidebar a {
     margin: 2.5px 0 2.5px 0;
 }
+
+@media (max-width: 825px) {
+    .Sidebar {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .Sidebar a {
+        margin: 2.5px 10px 2.5px 10px;
+    }
+}
